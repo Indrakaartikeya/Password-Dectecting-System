@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "username": "1NH24CD032",
+            "password": "1NH24CD032",
+            "category": "user"
+        },
+        {
+            "username": "1NH24CD046",
+            "password": "1NH24CD046",
+            "category": "user"
+        }
+    ],
+    "admins": [
+        {
+            "username": "Admin",
+            "password": "123456",
+            "category": "admin"
+        },
+        {
+            "username": "Teacher",
+            "password": "123456",
+            "category": "admin"
+        }
+    ],
+    "badwords": [
+        "hack",
+        "root",
+        "passworhid",
+        "sql",
+        "script"
+    ]
+}

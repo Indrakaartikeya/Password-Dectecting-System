@@ -1,0 +1,440 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url("background.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.inputbox {
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -10px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: #fff;
+}
+
+/* Fix Autofill Background & Label Position */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px rgba(0,0,0,0);
+}
+
+input:-webkit-autofill ~ label,
+input:autofill ~ label {
+  top: -15px;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.inputbox ion-icon {
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+.forget {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 15px;
+  font-size: 0.9em;
+  color: #fff;
+}
+
+.forget label:nth-child(2) {
+  order: 1;
+}
+
+.forget label {
+  display: flex;
+  align-items: center;
+}
+
+.forget label input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.forget label a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.forget label a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.register {
+  font-size: 0.9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.status-card {
+  width: 300px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.card-content {
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.success-card .card-content {
+  background: linear-gradient(135deg, #72d6bc 0%, #3bb2b8 100%);
+}
+
+.failed-card .card-content {
+  background: linear-gradient(135deg, #f15d5e 0%, #d63232 100%);
+}
+
+.status-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  font-size: 40px;
+}
+
+.status-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+.status-card p {
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+.status-card button {
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: none;
+  color: #666;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-top: 1px solid #eee;
+}
+
+.success-card button {
+  color: #3bb2b8;
+}
+
+.failed-card button {
+  color: #d63232;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+/* Lockdown State */
+.locked {
+  opacity: 0.8; /* Increased opacity for better visibility */
+}
+
+.locked input, 
+.locked button {
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.locked button {
+  background: #eee !important;
+  color: #d63232 !important; /* Bold red for the lockdown text */
+  font-weight: 700;
+}
+
+.captcha-row {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid #fff;
+  margin: 30px 0;
+  height: 50px; /* Match standard inputbox height */
+  gap: 10px;
+  padding-bottom: 2px; /* Tiny gap for the underline thickness */
+}
+
+.captcha-code {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: #2a4c68;
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-style: italic;
+  user-select: none;
+  font-family: 'Courier New', Courier, monospace;
+  white-space: nowrap;
+  margin-bottom: 5px; /* Alignment tweak */
+}
+
+#refreshCaptcha {
+  color: #fff;
+  font-size: 1.4em;
+  cursor: pointer;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-bottom: 5px; /* Alignment tweak */
+}
+
+#refreshCaptcha:hover {
+  transform: rotate(180deg);
+}
+
+.input-field {
+  position: relative;
+  flex-grow: 1;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  padding: 0 5px;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  top: -15px; /* Moves up into empty space above the row */
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+/* Admin Dashboard Styling */
+.admin-dashboard {
+  width: 90%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideIn 0.3s ease-out;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.dashboard-header h2 {
+  color: #2a4c68;
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.close-dash {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #999;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+
+.log-container {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+.log-entry {
+  background: #f9f9f9;
+  border-left: 4px solid #2a4c68;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  color: #444;
+}
+
+.log-entry p {
+  margin: 2px 0;
+}
+
+.log-entry small {
+  color: #999;
+  display: block;
+  margin-top: 5px;
+}
+
+.status-success {
+  color: #27ae60;
+  font-weight: 700;
+}
+
+.status-rejected {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.status-banned {
+  color: #c0392b;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.log-banned {
+  border-left: 6px solid #c0392b;
+  background: #fff0f0;
+}
+
+.clear-logs {
+  margin-top: 20px;
+  background: #e74c3c !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+}
+
+.clear-logs:hover {
+  background: #c0392b !important;
+}
+
+.exit-btn {
+  background: transparent !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-top: 15px !important;
+  font-size: 0.9em !important;
+  font-weight: 500 !important;
+  transition: 0.3s !important;
+}
+
+.exit-btn:hover {
+  background: rgba(231, 76, 60, 0.2) !important;
+  border-color: #e74c3c !important;
+  color: #fff !important;
+}
